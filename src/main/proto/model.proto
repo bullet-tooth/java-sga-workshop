@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option java_package = "com.exonum.workshop.model";
+option java_outer_classname = "ModelProtos";
+
+message Person {
+  string passport = 1;
+  string name = 2;
+  uint32 age = 3;
+  string sex = 4;
+}
+
+message Status {
+  uint32 status = 1;
+}
