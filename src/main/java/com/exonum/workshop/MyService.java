@@ -40,7 +40,7 @@ public final class MyService extends AbstractService {
 
   @Override
   protected Schema createDataSchema(View view) {
-    return new MySchema(view);
+    return new CustomsControlSchema(view);
   }
 
   @Override

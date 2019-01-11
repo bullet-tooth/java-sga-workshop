@@ -17,8 +17,15 @@
 package com.exonum.workshop;
 
 import com.exonum.binding.common.hash.HashCode;
+import com.exonum.binding.common.serialization.StandardSerializers;
 import com.exonum.binding.service.Schema;
 import com.exonum.binding.storage.database.View;
+import com.exonum.binding.storage.indices.ListIndex;
+import com.exonum.binding.storage.indices.ListIndexProxy;
+import com.exonum.binding.storage.indices.MapIndex;
+import com.exonum.binding.storage.indices.MapIndexProxy;
+import com.exonum.workshop.model.ModelProtos.Person;
+import com.exonum.workshop.model.ModelProtos.Status;
 import java.util.Collections;
 import java.util.List;
 
@@ -30,11 +37,11 @@ import static com.google.common.base.Preconditions.checkNotNull;
  *
  * @see <a href="https://exonum.com/doc/architecture/storage/#table-types">Exonum table types.</a>
  */
-public final class MySchema implements Schema {
+public final class CustomsControlSchema implements Schema {
 
   private final View view;
 
-  public MySchema(View view) {
+  public CustomsControlSchema(View view) {
     this.view = checkNotNull(view);
   }
 
@@ -45,4 +52,17 @@ public final class MySchema implements Schema {
     // see https://exonum.com/doc/architecture/storage/#merkelized-indices
     return Collections.emptyList();
   }
+
+
+  public ListIndex<Person> persons() {
+    return ListIndexProxy.newInstance("persons", view, Person.class);
+  }
+
+  public MapIndex<String, Status> statuses() {
+    return MapIndexProxy.newInstance("statuses",
+        view,
+        StandardSerializers.string(),
+        StandardSerializers.protobuf(Status.class));
+  }
+
 }
