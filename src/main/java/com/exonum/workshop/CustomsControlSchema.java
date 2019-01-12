@@ -16,6 +16,8 @@
 
 package com.exonum.workshop;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import com.exonum.binding.common.hash.HashCode;
 import com.exonum.binding.common.serialization.StandardSerializers;
 import com.exonum.binding.service.Schema;
@@ -28,8 +30,6 @@ import com.exonum.workshop.model.ModelProtos.Person;
 import com.exonum.workshop.model.ModelProtos.Status;
 import java.util.Collections;
 import java.util.List;
-
-import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
  * {@code MySchema} provides access to the tables of {@link $.MyService},
@@ -52,7 +52,6 @@ public final class CustomsControlSchema implements Schema {
     // see https://exonum.com/doc/architecture/storage/#merkelized-indices
     return Collections.emptyList();
   }
-
 
   public ListIndex<Person> persons() {
     return ListIndexProxy.newInstance("persons", view, Person.class);

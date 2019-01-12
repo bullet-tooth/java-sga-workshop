@@ -28,7 +28,7 @@ public final class ServiceModule extends AbstractModule {
 
   @Override
   protected void configure() {
-    bind(Service.class).to(MyService.class).in(Singleton.class);
+    bind(Service.class).to(CustomsControlService.class).in(Singleton.class);
     bind(TransactionConverter.class).to(MyTransactionConverter.class);
   }
 }

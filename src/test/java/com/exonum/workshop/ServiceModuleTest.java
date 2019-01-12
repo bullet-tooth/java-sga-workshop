@@ -33,7 +33,7 @@ class ServiceModuleTest {
 
     Service s = injector.getInstance(Service.class);
 
-    assertThat(s, instanceOf(MyService.class));
+    assertThat(s, instanceOf(CustomsControlService.class));
   }
 
   @Test
