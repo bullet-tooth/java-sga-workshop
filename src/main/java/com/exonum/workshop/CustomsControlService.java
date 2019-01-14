@@ -60,6 +60,7 @@ public final class CustomsControlService extends AbstractService {
   @Override
   public void createPublicApiHandlers(Node node, Router router) {
     this.node = node;
+    new ApiController(this).mountApi(router);
   }
 
   public List<Person> getPersons() {

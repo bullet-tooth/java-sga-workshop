@@ -23,4 +23,13 @@ public enum CustomsControlStatus {
     return false;
   }
 
+  public static CustomsControlStatus of(int status) {
+    for (CustomsControlStatus s : CustomsControlStatus.values()) {
+      if (s.id == status) {
+        return s;
+      }
+    }
+    throw new RuntimeException("Unknown status");
+  }
+
 }
