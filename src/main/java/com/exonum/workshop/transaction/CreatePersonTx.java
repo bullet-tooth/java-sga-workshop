@@ -17,7 +17,7 @@ import java.util.Optional;
 
 public final class CreatePersonTx implements Transaction {
 
-  private static final short ID = 0;
+  static final short ID = 0;
 
   private final String passport;
   private final String name;

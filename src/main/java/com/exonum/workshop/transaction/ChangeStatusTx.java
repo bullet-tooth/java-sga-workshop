@@ -12,6 +12,8 @@ import com.exonum.workshop.model.ModelProtos.Status;
 
 public class ChangeStatusTx implements Transaction {
 
+  static final short ID = 1;
+
   private final String passport;
   private final int newStatus;
 

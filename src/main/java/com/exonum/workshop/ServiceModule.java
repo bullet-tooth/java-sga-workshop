@@ -18,6 +18,7 @@ package com.exonum.workshop;
 
 import com.exonum.binding.service.Service;
 import com.exonum.binding.service.TransactionConverter;
+import com.exonum.workshop.transaction.CustomControlTransactionConverter;
 import com.google.inject.AbstractModule;
 import com.google.inject.Singleton;
 
@@ -29,6 +30,6 @@ public final class ServiceModule extends AbstractModule {
   @Override
   protected void configure() {
     bind(Service.class).to(CustomsControlService.class).in(Singleton.class);
-    bind(TransactionConverter.class).to(MyTransactionConverter.class);
+    bind(TransactionConverter.class).to(CustomControlTransactionConverter.class);
   }
 }

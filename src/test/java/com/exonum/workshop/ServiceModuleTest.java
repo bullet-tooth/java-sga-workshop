@@ -21,6 +21,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 import com.exonum.binding.service.Service;
 import com.exonum.binding.service.TransactionConverter;
+import com.exonum.workshop.transaction.CustomControlTransactionConverter;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import org.junit.jupiter.api.Test;
@@ -42,7 +43,7 @@ class ServiceModuleTest {
 
     TransactionConverter s = injector.getInstance(TransactionConverter.class);
 
-    assertThat(s, instanceOf(MyTransactionConverter.class));
+    assertThat(s, instanceOf(CustomControlTransactionConverter.class));
   }
 
   private static Injector createInjector() {
