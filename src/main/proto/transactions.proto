@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option java_package = "com.exonum.workshop.transaction";
+option java_outer_classname = "TxProtos";
+
+message CreatePerson {
+  string passport = 1;
+  string name = 2;
+  uint32 age = 3;
+  string sex = 4;
+}
+
+message ChangeStatus {
+  string passport = 1;
+  uint32 newStatus = 2;
+}
