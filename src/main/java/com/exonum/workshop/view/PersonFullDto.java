@@ -1,6 +1,7 @@
 package com.exonum.workshop.view;
 
 import com.exonum.workshop.model.ModelProtos.Person;
+import com.google.common.base.MoreObjects;
 
 public class PersonFullDto {
 
@@ -21,4 +22,30 @@ public class PersonFullDto {
         person.getSex());
   }
 
+
+  public String getPassport() {
+    return passport;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public int getAge() {
+    return age;
+  }
+
+  public String getSex() {
+    return sex;
+  }
+
+  @Override
+  public String toString() {
+    return MoreObjects.toStringHelper(this)
+        .add("passport", passport)
+        .add("name", name)
+        .add("age", age)
+        .add("sex", sex)
+        .toString();
+  }
 }
