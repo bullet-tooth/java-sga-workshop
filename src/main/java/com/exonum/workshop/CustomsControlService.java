@@ -34,8 +34,12 @@ import com.google.inject.Inject;
 import io.vertx.ext.web.Router;
 import java.util.List;
 import java.util.Optional;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public final class CustomsControlService extends AbstractService {
+
+  private static final Logger logger = LogManager.getLogger(CustomsControlService.class);
 
   public static final short ID = 42;
   static final String NAME = "my-service";
@@ -61,6 +65,7 @@ public final class CustomsControlService extends AbstractService {
   public void createPublicApiHandlers(Node node, Router router) {
     this.node = node;
     new ApiController(this).mountApi(router);
+    logger.info("API handler created successfully");
   }
 
   public List<Person> getPersons() {
